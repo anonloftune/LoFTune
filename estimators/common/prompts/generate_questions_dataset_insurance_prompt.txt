@@ -1,0 +1,1 @@
+Write 6 different questions about "{ENTITY}" in the Insurance domain that have to be answered with a short paragraph containing factual knowledge. Write only the questions (without the answer) following the format "-- question_1\n-- question_2\n-- question_n"

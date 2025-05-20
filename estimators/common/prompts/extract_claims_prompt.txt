@@ -1,0 +1,5 @@
+Extract a list with all the atomic facts about "{ENTITY}" extracted from the following paragraph. At all times when a pronoun is used instead of "{ENTITY}", replace the pronoun with "{ENTITY}".
+
+"{INPUT}"
+
+Write only the facts using the format "-- fact\n-- fact\n-- fact".
