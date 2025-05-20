@@ -1,0 +1,11 @@
+INPUT: Answer the following question with a short answer: "How does COVID-19 spread between people?"
+OUTPUT: COVID-19 can be spread through the air by sneezing, talking, coughing, or by breathing.
+----
+INPUT: Answer the following question with a short answer: "Can someone spread COVID-19 if they are asymptomatic?"
+OUTPUT: A person with COVID-19 who is asymptomatic is still contagious and can spread the infection to others.
+----
+INPUT: Answer the following question with a short answer: "How long does SARS-CoV-2 survive on surfaces?
+OUTPUT: SARS-CoV-2 can persist on some surfaces for several days.
+----
+INPUT: Answer the following question with a short answer: "{question}"
+OUTPUT:

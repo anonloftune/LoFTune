@@ -1,0 +1,11 @@
+INPUT: Answer the following question with a short answer: "What does liability insurance protect policyholders from?"
+OUTPUT: Liability insurance protects policyholders from financial loss resulting from claims or lawsuits filed against them for injuries or damages they're deemed responsible for.
+----
+INPUT: Answer the following question with a short answer: "What expenses may be covered by liability insurance?"
+OUTPUT: Liability insurance may cover expenses related to legal fees, settlements, and damages resulting from third-party claims against the insured party.
+----
+INPUT: Answer the following question with a short answer: "What is another name for Liability coverage?"
+OUTPUT: Another name for Liability coverage is "Third-party coverage."
+----
+INPUT: Answer the following question with a short answer: "{question}"
+OUTPUT:

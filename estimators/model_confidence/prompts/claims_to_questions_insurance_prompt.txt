@@ -1,0 +1,20 @@
+I will provide a statement containing one atomic fact about the insurance concept "Equipment Breakdown Insurance". Please rephrase the following statement into a specific question testing knowledge of the key fact in the statement. For example:
+Statement: Motor failures are included in the coverage, such as engine, transmission, or alternator issues.
+Question: Equipment breakdown insurance usually covers motor failures such as what?
+Statement: Equipment Breakdown Insurance (EBI) covers equipment failure or mechanical breakdown due to internal failure or mechanical malfunction.
+Question: Equipment Breakdown Insurance (EBI) covers equipment failure or mechanical breakdown due to what?
+Statement: Specific endorsements or riders may be required to be added to the policy for equipment breakdown insurance coverage.
+Question: What may be required to be added to the policy for equipment breakdown insurance coverage?
+I will provide a statement containing one atomic fact about the insurance concept "Intentional Acts". Please rephrase the following statement into a specific question testing knowledge of the key fact in the statement. For example:
+Statement: This exclusion is common in both life and health insurance policies, as well as in other forms of insurance.
+Question: Are intentional acts a common exclusion in life and health insurance policies?
+Statement: Intentional acts, such as fraud or forgery, are typically not covered by insurance policies.
+Question: Are intentional acts, such as fraud or forgey tipically covered by insurance policies?
+I will provide a statement containing one atomic fact about the insurance concept "Theft, Disappearance and Destruction". Please rephrase the following statement into a specific question testing knowledge of the key fact in the statement. For example:
+Statement: Theft coverage may include coverage for the cost of replacing stolen property or the value of any damage caused to the item
+Question: Theft coverage may include coverage for the cost of what?
+Statement: Theft, Disappearance and Destruction can be excluded in insurance policies for intentional damage caused by the insured.
+Question: Theft, Disappearance and Destruction can be excluded in insurance policies for intentional damage caused by whom?
+I will provide a statement containing one atomic fact about the insurance concept {ENTITY}. Please rephrase the following statement into a specific question testing knowledge of the key fact in the statement. For example:
+Statement: {STATEMENT}
+Question: 

@@ -1,0 +1,18 @@
+I will provide a statement containing one atomic fact about the medical concept "Vaccines" in the context of COVID-19. Please rephrase the following statement into a specific question testing knowledge of the key fact in the statement. For example:
+Statement: COVID-19 vaccines can help people prevent mild and moderate illness from COVID-19 and greatly reduce the risk of severe illness that may lead to hospitalization and death.
+Question: How effective are COVID-19 vaccines in preventing the infection of the virus?
+Statement: Vaccination against COVID-19 by Pfizer, Moderna, and AstraZeneca requires a 21-day gap between doses.
+Question: What is the recommended spacing between doses of the COVID-19 vaccines?
+I will provide a statement containing one atomic fact about the medical concept "ACE2 gene" in the context of COVID-19. Please rephrase the following statement into a specific question testing knowledge of the key fact in the statement. For example:
+Statement: ACE2 gene may allow entry of SARS-CoV-2 into the cells of the airway epithelium.
+Question: How does the ACE2 gene play a role in viral entry into cells in COVID-19?
+Statement: Having a high level of ACE2 in the airways is one of the risk factors for severe COVID-19 disease.
+Question: Which is the relation between ACE2 and the level of severity of a COVID-19 infection?
+I will provide a statement containing one atomic fact about the medical concept "Mental Depression" in the context of COVID-19. Please rephrase the following statement into a specific question testing knowledge of the key fact in the statement. For example:
+Statement: The global prevalence of depression and anxiety symptoms increased during the pandemic. 
+Question: How does the prevalence of mental depression changed among the general population during the COVID-19 pandemic?
+Statement: The disruptions and associated economic impacts are likely to increase the risk of developing depression in some people.
+Question: What are some risk factors that can contribute to the development of mental depression in individuals during the COVID19 crisis.
+I will provide a statement containing one atomic fact about the medical concept {ENTITY}. Please rephrase the following statement into a specific question testing knowledge of the key fact in the statement. For example:
+Statement: {STATEMENT}
+Question: 
