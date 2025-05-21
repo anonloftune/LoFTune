@@ -12,6 +12,23 @@ Reproducibility
 Factuality estimators
 ~~~~~~~~~~~~~~~~~~~~~
 
+.. code:: bash
+
+   git clone https://github.com/anonloftune/LoFTune.git
+   cd LoFTune/
+   conda create -n loftune python=3.12
+   conda activate loftune
+   pip install requests
+   cd estimators/common
+   mkdir .cache
+   touch api.key # Here you need to copy your OpenAI API token
+   python generate_questions_dataset.py --entities_path ../../data/insurance/train_entities.txt \
+   --dataset_output_path ../../data/insurance/train_entities_questions.json \
+   --prompt_path prompts/generate_questions_dataset_insurance_prompt.txt \
+   --openai_key ./api.key
+
+   
+
 **Model confidence**
 
 **FactScore/Expanded FactScore**
