@@ -1,0 +1,302 @@
+Stop Loss: "Stop-loss insurance"
+Soft Insurance Market: null
+Risk Management Program:
+    synonyms:
+        Risk Assessment Program: "Risk assessment"
+        Risk Management Strategy: "Risk management"
+    hypernyms:
+        Enterprise Risk Management (ERM) Program: "Enterprise risk management"
+        Risk Governance Framework: "Governance, risk management, and compliance"
+Additional Insured: "Additional insured"
+Forgery or Alteration Coverage:
+    hypernyms:
+        Business Insurance: "Insurance"
+        Property and Casualty Insurance: "Property insurance"
+        General Liability Insurance: "Liability insurance"
+Joint and Several Liability: "Joint and several liability"
+Personal Property: "Personal property"
+Comprehensive Coverage: "Vehicle insurance in the United States"
+Defense Coverage:
+    synonyms:
+        Legal Expenses Coverage: "Legal expenses insurance"
+    hypernyms:
+        Legal Defense: "Defense (legal)"
+        Legal Liability Protection: "Legal liability"
+        Legal Defense Fund: "Legal defense fund"
+Contractual Liability:
+    hypernyms:
+        Liability Insurance: "Liability insurance"
+        Indemnity Insurance: "Indemnity"
+        Commercial Insurance: "Commercial general liability insurance"
+        Professional Liability Insurance: "Professional liability insurance"
+Theft, Disappearance and Destruction:
+    hypernyms:
+        Damage: "Property crime"
+Risk Assessment: "Risk assessment"
+Conditions:
+    synonyms:
+        Requirements: "Requirement"
+        Regulations: "Regulation"
+        Obligations: "Law of obligations"
+        Specifications: "Specification (technical standard)"
+        Mandates: "Mandate (international law)"
+    hypernyms:
+        Terms and Conditions: "Terms of service"
+Personally Liable: null
+Limit of Liability: null
+Catastrophe: "Disaster"
+Liability Insurance: "Liability insurance"
+Defendant: "Defendant"
+Actual Cash Value (ACV): "Actual cash value"
+Insurable Interest: "Insurable interest"
+Automobile: "Car"
+Experience Modification Factor: "Experience modifier"
+Waiver: "Waiver"
+Other Insurance Clause:
+    synonyms:
+        Co-Insurance Clause: "Co-insurance"
+Risk: "Risk"
+Fine Arts: "Fine art"
+Reinsurance: "Reinsurance"
+Indemnify: "Indemnity"
+Retention: null
+Special Endorsement:
+    hypernyms:
+        Endorsement: "Insurance policy"
+        Policy Rider: "Additional insured"
+Blanket Limit: null
+Crime Coverage:
+    hypernyms:
+        Risk Management: "Risk management"
+        Insurance Coverage: "Insurance policy"
+        Property and Casualty Insurance: "Property insurance"
+        Liability Insurance: "Liability insurance"
+Hard Market:
+    hypernyms:
+        Market Cycle: "Insurance cycle"
+        Business Cycle: "Business cycle"
+        Financial Environment: "Financial market"
+Workers’ Compensation and Employers’ Liability Insurance: "Workers' compensation"
+Proof of Loss: null
+Builder’s Risk Coverage: "Builder's risk insurance"
+Incurred But Not Reported (IBNR): "Incurred but not reported"
+Collision Coverage: "Vehicle insurance in the United States"
+Extra Expense Coverage:
+    hypernyms:
+        Business Interruption Insurance: "Business interruption insurance"
+        Commercial Property Insurance: "Property insurance"
+        Business Insurance: "Insurance"
+        General Insurance: "General insurance"
+        Financial Risk Management: "Risk management"
+Punitive Damages: "Punitive damages"
+Retroactive Date:
+    synonyms:
+        Effective Date: "Effective date"
+    hypernyms:
+        Policy Period: "Insurance policy"
+Environmental Impairment Liability:
+    synonyms:
+        Pollution Liability Insurance: "Pollution insurance"
+    hypernyms:
+        Commercial Liability Insurance: "Commercial general liability insurance"
+        General Liability Insurance: "Liability insurance"
+        Property and Casualty Insurance: "Property insurance"
+        Commercial Insurance: "Insurance"
+Claims Management:
+    hypernyms:
+        Risk Management: "Risk management"
+Aggregate Limit:
+    synonyms:
+        Policy Limit: "Professional liability insurance"
+Time Element:
+    synonyms:
+        Business Interruption: "Business interruption insurance"
+        Income Protection: "Income protection insurance"
+Risk of Direct Physical Loss:
+    synonyms:
+        Hazard of Direct Physical Impairment: "Hazard"
+    hypernyms:
+        Insurance Risk: "Risk management"
+        Insurable Event: "Insurance"
+        Contingency: "Risk management"
+Premium: "Insurance"
+Hold Harmless Agreement:
+    synonyms:
+        Indemnity Agreement: "Indemnity"
+        Waiver of Liability: "Liability waiver"
+Wrongful Act:
+    synonyms:
+        Misconduct: "Misconduct"
+        Malfeasance: "Malfeasance in office"
+        Negligence: "Negligence"
+        Tort: "Tort"
+Deductible: "Deductible"
+Equipment Breakdown Insurance:
+    hypernyms:
+        Property Insurance: "Property insurance"
+        Commercial Insurance: "Commercial general liability insurance"
+        Asset Protection Insurance: "Asset protection"
+        Business Interruption Insurance: "Business interruption insurance"
+        Liability Insurance: "Liability insurance"
+Underwriting: "Underwriting"
+Relative Loss Ratio:
+    hypernyms:
+        Loss Ratio: "Loss ratio"
+Occurrence Basis:
+    hypernyms:
+        Claims Basis: "Insurance policy"
+Cancellation: "Cancellation (insurance)"
+Business Interruption: "Business interruption insurance"
+Risk Retention:
+    synonyms:
+        Self-insurance: "Self-insurance"
+    hypernyms:
+        Risk Management: "Risk management"
+        Risk Financing: "Risk financing"
+        Risk Mitigation: "Mitigation"
+        Financial Risk Management: "Financial risk management"
+        Enterprise Risk Management (ERM): "Enterprise risk management"
+        Risk Assessment and Planning: "Risk assessment"
+Property Damage: "Property damage"
+Additional Insured Endorsement:
+    hypernyms:
+        Policy Conditions: "Insurance policy"
+Risk Management: "Risk management"
+Property Insurance: "Property insurance"
+Coinsurance Penalty: null
+GatherGuard Policy:
+    hypernyms:
+        Insurance Policy: "Insurance policy"
+        Liability Policy: "Liability insurance"
+        Commercial Insurance: "Commercial general liability insurance"
+        Business Insurance: "Insurance"
+        Casualty Insurance: "Casualty insurance"
+Demolition Coverage:
+    hypernyms:
+        Property Insurance: "Property insurance"
+        Casualty Insurance: "Casualty insurance"
+Reinsurer: "Reinsurance"
+Mobile Equipment:
+    hypernyms:
+        Property Insurance: "Property insurance"
+        Commercial Insurance: "Commercial general liability insurance"
+        Vehicle Insurance: "Vehicle insurance"
+Accident: "Accident"
+Surety: "Surety"
+Bodily Injury:
+    synonyms:
+        Personal Injury: "Personal injury"
+    hypernyms:
+        Injury: "Injury"
+Accounts Receivable Coverage:
+    synonyms:
+        Credit Insurance: "Trade credit insurance"
+Prior Acts (Nose Coverage):
+    synonyms:
+        Tail Coverage: "Professional liability insurance"
+    hypernyms:
+        Claims-Made Coverage: "Liability insurance"
+Audit: "Audit"
+Transit Coverage:
+    synonyms:
+        Shipping Insurance: "Shipping insurance"
+        Inland Marine Insurance: "Inland marine insurance"
+    hypernyms:
+        Marine Insurance: "Marine insurance"
+Occurrence:
+    synonyms:
+        Event: "Event (philosophy)"
+        Claim: "Insurance"
+        Accident: "Accident"
+        Case: "Case study"
+    hypernyms:
+        Damage: "Damages"
+        Catastrophe: "Disaster"
+Intentional Acts: null
+Standardized Form:
+    hypernyms:
+        Form: "Form (document)"
+        Insurance Contract: "Insurance policy"
+Perils:
+    synonyms:
+        Hazards: "Hazard"
+        Risks: "Risk"
+        Threats: "Threat"
+        Vulnerabilities: "Vulnerability"
+    hypernyms:
+        Disasters: "Disaster"
+Damages: "Damages"
+Extended Loss Reporting Period (“TAIL”):
+    synonyms:
+        Extended Reporting Period (ERP): "Professional liability insurance"
+    hypernyms:
+        Liability Insurance Provision: "Liability insurance"
+Insurance Policy: "Insurance policy"
+Subrogation: "Subrogation"
+Replacement Cost: "Replacement value"
+Personal Injury: "Personal injury"
+Loss Control:
+    synonyms:
+        Risk Management: "Risk management"
+        Loss Prevention: "Retail loss prevention"
+Fidelity Bond: "Fidelity bond"
+Binder:
+    hypernyms:
+        Insurance Contract: "Insurance policy"
+Risk Management Committee:
+    synonyms:
+        Enterprise Risk Management Committee: "Enterprise risk management"
+        Operational Risk Committee: "Operational risk management"
+    hypernyms:
+        Board of Directors: "Board of directors"
+Exclusions: "Exclusion clause"
+Claims Made Coverage:
+    hypernyms:
+        Liability Insurance: "Liability insurance"
+        Professional Liability Insurance: "Professional liability insurance"
+        Business Insurance: "Insurance"
+Products Liability: "Product liability"
+Offense:
+    synonyms:
+        Violation: "Negligence"
+        Infraction: "Contravention"
+        Breach: "Tort"
+        Infringement: "Copyright infringement"
+        Wrongdoing: "Civil wrong"
+Discovery Period:
+    synonyms:
+        Extended Reporting Period: "Professional liability insurance"
+Property: "Property"
+Bond, Public Official:
+    hypernyms:
+        Surety Bond: "Surety"
+        Fidelity Bond: "Fidelity bond"
+        Insurance Policy: "Insurance policy"
+Risk Transfer or Sharing:
+    synonyms:
+        Risk Pooling: "Risk pool"
+    hypernyms:
+        Risk Management: "Risk management"
+        Risk Financing: "Risk financing"
+        Risk Reduction: "Risk management"
+        Insurance: "Insurance"
+        Reinsurance: "Reinsurance"
+Errors and Omissions Coverage – (PUBLIC OFFICIALS LIABILITY): 
+    hypernyms:
+        Professional Liability Insurance: "Professional liability insurance"
+        Directors and Officers (D&O) Insurance: "Directors and officers liability insurance"
+        General Liability Insurance: "Liability insurance"
+Certificate of Insurance:
+    synonyms:
+        Proof of Insurance: "Proof of insurance"
+Named Insured:
+    hypernyms:
+        Beneficiary: "Beneficiary"
+Declarations: "Declaration (law)"
+Plaintiff: "Plaintiff"
+Garagekeepers Legal Liability:
+    hypernyms:
+        Liability Insurance: "Liability insurance"
+        Commercial Liability Insurance: "Commercial general liability insurance"
+        Business Insurance: "Insurance"
+Loss Payable Clause: "Loss payee clause"

@@ -1,0 +1,36 @@
+Excess Liability Insurance:
+    synonyms:
+        Umbrella Liability Insurance: "Umbrella insurance"
+    hypernyms:
+        Liability Insurance: "Liability insurance"
+        Commercial Liability Insurance: "Commercial general liability insurance"
+        Business Insurance: "Insurance"
+        Insurance Policies: "Insurance policy"
+Special Events Insurance:
+    hypernyms:
+        Liability Insurance: "Liability insurance"
+        Commercial Insurance: "Commercial general liability insurance"
+        Property and Casualty Insurance: "General insurance"
+        Business Insurance: "Insurance"
+        Casualty Insurance: "Casualty insurance"
+Indemnification Agreement: "Indemnity"
+Loss Ratio: "Loss ratio"
+Negligence: "Negligence"
+Endorsements:
+    synonyms:
+        Riders: "Insurance policy"
+Advertising Injury:
+    hypernyms:
+        Liability Coverage: "Liability insurance"
+        Commercial Liability: "Commercial general liability insurance"
+        Professional Liability: "Professional liability insurance"
+        Legal Liability: "Legal liability"
+Insurance: "Insurance"
+Self Insurance: "Self-insurance"
+Immunity:
+    synonyms:
+        Indemnity: "Indemnity"
+        Defense: "Defense (legal)"
+    hypernyms:
+        Warranty: "Warranty"
+Umbrella Liability Insurance: "Umbrella insurance"
