@@ -1,0 +1,45 @@
+{
+  "builder_name": "csv",
+  "citation": "",
+  "config_name": "default",
+  "dataset_name": "csv",
+  "dataset_size": 2620210,
+  "description": "",
+  "download_checksums": {
+    "/home/jovyan/.cache/kagglehub/datasets/xhlulu/covidqa/versions/6/community.csv": {
+      "num_bytes": 2609859,
+      "checksum": null
+    }
+  },
+  "download_size": 2609859,
+  "features": {
+    "input": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "output": {
+      "feature": {
+        "dtype": "string",
+        "_type": "Value"
+      },
+      "_type": "Sequence"
+    }
+  },
+  "homepage": "",
+  "license": "",
+  "size_in_bytes": 5230069,
+  "splits": {
+    "train": {
+      "name": "train",
+      "num_bytes": 2620210,
+      "num_examples": 642,
+      "dataset_name": "csv"
+    }
+  },
+  "version": {
+    "version_str": "0.0.0",
+    "major": 0,
+    "minor": 0,
+    "patch": 0
+  }
+}
