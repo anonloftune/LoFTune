@@ -1,0 +1,4 @@
+LoFTune training
+Copyright 2025, 
+
+Initial versions of dpo_llama2.py, sft_llama2.py and merge_peft_adapter.py were created by HuggingFace. (https://huggingface.co/)
