@@ -18,7 +18,7 @@ Factuality estimators
    cd LoFTune/
    conda create -n loftune python=3.12
    conda activate loftune
-   pip install requests tqdm numpy sentence_transformers
+   pip install requests tqdm numpy sentence_transformers json_repair
    cd estimators
    mkdir .cache
    touch api.key # Here you need to copy your OpenAI API token
@@ -114,6 +114,15 @@ To get the factscore without the term expansion, we set to "insurance-en-new_dis
 
 **Judge-based**
 
+From the "estimators" folder, we run:
+
+.. code:: bash
+
+   conda activate loftune
+   python -m judge_based.judge_based --paragraphs_path ../data/insurance/train_entities_questions_answers_Llama-2-7b-hf.json \
+   --dataset_output_path ../data/insurance/train_entities_questions_answers_judge-based_Llama-2-7b-hf.json \
+   --openai_key ./api.key
+   
 
 SFT and preference dataset generation
 ~~~~~~~~~~~~~~~~~~~~~
