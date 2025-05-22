@@ -18,7 +18,7 @@ Factuality estimators
    cd LoFTune/
    conda create -n loftune python=3.12
    conda activate loftune
-   pip install requests tqdm numpy sentence_transformers json_repair
+   pip install requests tqdm numpy sentence_transformers json_repair accelerate==0.28.0 datasets==2.18.0 peft==0.9.0 trl==0.7.11 transformers==4.38.2 bitsandbytes==0.43.0 torch==2.2.1 "numpy<2.0" tensorboard
    cd estimators
    mkdir .cache
    touch api.key # Here you need to copy your OpenAI API token
@@ -139,6 +139,60 @@ SFT and preference dataset generation
 Training
 ~~~~~~~~~~~~~~~~~~~~~
 **Supervised Fine-Tuning (SFT)**
+
+.. code:: bash
+
+   cd training
+   accelerate config
+
+The default_config.yaml file in ~/.cache/huggingface/defaul_config.yaml
+
+.. code:: yaml
+
+   compute_environment: LOCAL_MACHINE
+   debug: false
+   distributed_type: 'NO'
+   downcast_bf16: 'no'
+   gpu_ids: all
+   machine_rank: 0
+   main_training_function: main
+   mixed_precision: bf16
+   num_machines: 1
+   num_processes: 1
+   rdzv_backend: static
+   same_network: true
+   tpu_env: []
+   tpu_use_cluster: false
+   tpu_use_sudo: false
+   use_cpu: false
+
+We run the SFT training, "max_steps" params has to be changed depending on the size of the SFT dataset, if size is for example 2730 examples, we divide 2730 by 8 (batch size) = 341,25 steps/epoch, and as an heuristic we train for 1.3 epochs so 341,25*1,3 = ~443:
+
+.. code:: bash
+
+   accelerate launch sft_llama2.py \
+       --train_data_path="../data/insurance/train_entities_questions_answers_Llama-2-7b-hf.jsonlines" \
+       --valid_data_path="../data/insurance/validation_entities_questions_answers_Llama-2-7b-hf.jsonlines" \
+       --output_dir="insurance_m_5/sft" \
+       --max_steps=443 \
+       --logging_steps=10 \
+       --save_steps=10 \
+       --per_device_train_batch_size=2 \
+       --per_device_eval_batch_size=64 \
+       --gradient_accumulation_steps=4 \
+       --gradient_checkpointing=False \
+       --group_by_length=False \
+       --learning_rate=1e-4 \
+       --lr_scheduler_type="cosine" \
+       --warmup_steps=100 \
+       --weight_decay=0.05 \
+       --optim="paged_adamw_32bit" \
+       --bf16=True \
+       --remove_unused_columns=True \
+       --run_name="insurance_m_5_sft" \
+       --report_to="tensorboard" \
+       --eval_steps=10 \
+       --evaluation_strategy="steps"
 
 **Direct Preference Optimization (DPO)**
 
