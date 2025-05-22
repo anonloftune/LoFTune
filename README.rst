@@ -18,7 +18,7 @@ Factuality estimators
    cd LoFTune/
    conda create -n loftune python=3.12
    conda activate loftune
-   pip install requests tqdm
+   pip install requests tqdm numpy sentence_transformers
    cd estimators
    mkdir .cache
    touch api.key # Here you need to copy your OpenAI API token
@@ -51,7 +51,7 @@ Now we activate back the loftune conda environment to extract the claims from th
    --dataset_output_path ../data/insurance/train_entities_questions_answers_claims_Llama-2-7b-hf.json \
    --prompt_path common/prompts/extract_claims_prompt.txt \
    --openai_key api.key
-   
+
 
 **Model confidence**
 
@@ -64,14 +64,68 @@ Now we activate back the loftune conda environment to extract the claims from th
    conda activate vllm
    python -m model_confidence.answer_questions_vllm --question_dataset_path ../data/insurance/train_entities_questions_answers_claims_questions_Llama-2-7b-hf.json \
    --model_name_or_path meta-llama/Llama-2-7b-hf \
-   --dataset_output_path ../data/insurance/train_entities_questions_answers_claims_questions_answers_Llama-2-7b-hf.jsonlama-2-7b-hf.json \
+   --dataset_output_path ../data/insurance/train_entities_questions_answers_claims_questions_answers_Llama-2-7b-hf.json \
    --prompt_path model_confidence/prompts/answer_questions_insurance_prompt.txt
+   conda activate loftune
+   python -m model_confidence.truthfulness_score --answers_dataset_path ../data/insurance/train_entities_questions_answers_claims_questions_answers_Llama-2-7b-hf.json \
+   --dataset_output_path ../data/insurance/train_entities_questions_answers_claims_questions_answers_clustering_scores_Llama-2-7b-hf.json
    
 
 **FactScore/Expanded FactScore**
 
+.. code:: bash
+
+   cd factscore/
+   conda create -n factscore python=3.10
+   conda activate factscore
+   pip install -r requirements.txt
+   pip install gdown
+   mkdir -p .cache/factscore
+   gdown https://drive.google.com/uc?id=1Qu4JHWjpUKhGPaAW5UHhS5RJ545CVy4I
+   mv enwiki-20230401.db .cache/factscore/
+
+If we want to get the Expanded Factscore, we have to set to "insurance-en-new_distribution_train_dev-entities-synonyms-hypernyms.yml" the entity_articles_mapping param.
+
+.. code:: bash
+
+   python factscorer_dpo.py \
+   --claims_path ../../data/insurance/train_entities_questions_answers_claims_Llama-2-7b-hf.json \
+   --model_name retrieval+ChatGPT \
+   --cache_dir .cache/factscore \
+   --gamma 0 \
+   --openai_key ../api.key \
+   --use_atomic_facts  \
+   --entity_articles_mapping insurance-en-new_distribution_train_dev-entities-synonyms-hypernyms.yml \
+   --dataset_output_path  ../../data/insurance/train_entities_questions_answers_claims_expanded-factscore_Llama-2-7b-hf.json
+
+To get the factscore without the term expansion, we set to "insurance-en-new_distribution_train_dev-entities-no-expansion.yml" the entity_articles_mapping param.
+
+.. code:: bash
+
+   python factscorer_dpo.py \
+   --claims_path ../../data/insurance/train_entities_questions_answers_claims_Llama-2-7b-hf.json \
+   --model_name retrieval+ChatGPT \
+   --cache_dir .cache/factscore \
+   --gamma 0 \
+   --openai_key ../api.key \
+   --use_atomic_facts  \
+   --entity_articles_mapping insurance-en-new_distribution_train_dev-entities-no-expansion.yml \
+   --dataset_output_path  ../../data/insurance/train_entities_questions_answers_claims_factscore-no-expansion_Llama-2-7b-hf.json
+
 **Judge-based**
 
+
+SFT and preference dataset generation
+~~~~~~~~~~~~~~~~~~~~~
+
+.. code:: bash
+
+   python -m common.prepare_sft_data --dataset_input_path ../data/insurance/train_entities_questions_answers_claims_questions_answers_clustering_scores_Llama-2-7b-hf.json \
+   --dataset_output_path ../data/insurance/train_entities_questions_answers_Llama-2-7b-hf.jsonlines
+   python -m common.generate_preferences_dataset --scores_dataset_path ../data/insurance/train_entities_questions_answers_claims_questions_answers_clustering_scores_Llama-2-7b-hf.json \
+   --dataset_output_path ../data/insurance/train_entities_preferences_clustering_Llama-2-7b-hf.jsonlines \
+   --chosen_threshold 0.0
+   
 
 Training
 ~~~~~~~~~~~~~~~~~~~~~
