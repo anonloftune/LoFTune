@@ -121,6 +121,10 @@ if __name__ == "__main__":
                         help="for printing out rate limit error when using OpenAI keys")
     
     parser.add_argument("--dataset_output_path", type=str)
+
+    parser.add_argument('--entity_articles_mapping',
+                        type=str,
+                        default="insurance-en-new_distribution_train_dev-entities-synonyms-hypernyms.yml")
     
     args = parser.parse_args()
 
