@@ -1,0 +1,29 @@
+Screening for cancer
+Health Personnel
+Effect
+Mutation
+Serum
+Predictor
+angiotensin converting enzyme 2
+Age
+parent
+Data
+Test Result
+hospitalized patients
+Health Personnel
+Detection
+M Protein, multiple myeloma
+Perception
+Test Result
+immunoglobulin G
+Immunization
+Patients
+Pathogenic organism
+Staff
+care activity
+Pharmaceutical Preparations
+Students, Medical
+Levels (qualifier value)
+Anxiety
+Quarantine
+Myocarditis
