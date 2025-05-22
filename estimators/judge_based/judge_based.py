@@ -3,9 +3,9 @@ import json
 import tqdm
 import os
 import logging
-from basic_utils import decorate_str_with_date
+from judge_based.basic_utils import decorate_str_with_date
 
-from llms import LongGPTEval
+from judge_based.llms import LongGPTEval
 
 metric = None
 

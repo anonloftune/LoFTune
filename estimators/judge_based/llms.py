@@ -3,7 +3,7 @@ import logging
 import os
 import re
 
-from llm_api_call import GPTCaller
+from judge_based.llm_api_call import GPTCaller
 import json_repair
 import json
 import copy
