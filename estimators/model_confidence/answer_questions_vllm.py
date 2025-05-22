@@ -6,7 +6,7 @@ import pathlib
 import pickle
 import os
 import logging
-from generate_questions_dataset import calculate_md5
+from common.generate_questions_dataset import calculate_md5
 from vllm import LLM, SamplingParams
 
 llm = None

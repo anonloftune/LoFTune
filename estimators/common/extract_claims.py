@@ -2,7 +2,7 @@ import argparse
 import json
 import tqdm
 import os
-import generate_questions_dataset
+from common import generate_questions_dataset
 
 
 def extract_claims(text, entity, prompt):
