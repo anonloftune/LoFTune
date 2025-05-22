@@ -73,6 +73,45 @@ Now we activate back the loftune conda environment to extract the claims from th
 
 **FactScore/Expanded FactScore**
 
+.. code:: bash
+
+   cd factscore/
+   conda create -n factscore python=3.10
+   conda activate factscore
+   pip install -r requirements.txt
+   pip install gdown
+   mkdir -p .cache/factscore
+   gdown https://drive.google.com/uc?id=1Qu4JHWjpUKhGPaAW5UHhS5RJ545CVy4I
+   mv enwiki-20230401.db .cache/factscore/
+
+If we want to get the Expanded Factscore, we have to set to "insurance-en-new_distribution_train_dev-entities-synonyms-hypernyms.yml" the entity_articles_mapping param.
+
+.. code:: bash
+
+   python factscorer_dpo.py \
+   --claims_path ../../data/insurance/train_entities_questions_answers_claims_Llama-2-7b-hf.json \
+   --model_name retrieval+ChatGPT \
+   --cache_dir .cache/factscore \
+   --gamma 0 \
+   --openai_key ../api.key \
+   --use_atomic_facts  \
+   --entity_articles_mapping insurance-en-new_distribution_train_dev-entities-synonyms-hypernyms.yml \
+   --dataset_output_path  ../../data/insurance/train_entities_questions_answers_claims_expanded-factscore_Llama-2-7b-hf.json
+
+To get the factscore without the term expansion, we set to "insurance-en-new_distribution_train_dev-entities-no-expansion.yml" the entity_articles_mapping param.
+
+.. code:: bash
+
+   python factscorer_dpo.py \
+   --claims_path ../../data/insurance/train_entities_questions_answers_claims_Llama-2-7b-hf.json \
+   --model_name retrieval+ChatGPT \
+   --cache_dir .cache/factscore \
+   --gamma 0 \
+   --openai_key ../api.key \
+   --use_atomic_facts  \
+   --entity_articles_mapping insurance-en-new_distribution_train_dev-entities-no-expansion.yml \
+   --dataset_output_path  ../../data/insurance/train_entities_questions_answers_claims_factscore-no-expansion_Llama-2-7b-hf.json
+
 **Judge-based**
 
 
