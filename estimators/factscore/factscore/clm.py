@@ -18,7 +18,7 @@ from transformers import AutoTokenizer
 
 from factscore.utils import convert_model_to_int8_on_gpu
 from factscore.lm import LM
-from vllm import LLM, SamplingParams
+# from vllm import LLM, SamplingParams
 
 
 class CLM(LM):
