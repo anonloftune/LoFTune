@@ -112,7 +112,7 @@ To get the factscore without the term expansion, we set to "insurance-en-new_dis
    --entity_articles_mapping insurance-en-new_distribution_train_dev-entities-no-expansion.yml \
    --dataset_output_path  ../../data/insurance/train_entities_questions_answers_claims_factscore-no-expansion_Llama-2-7b-hf.json
 
-For the health domain you must use the factscorer_es_dpo.py script. Before run it, don't forget to fill the fields in service_config.ini file.
+For the health domain you must use the factscorer_es_dpo.py script. Before run it, don't forget to fill the fields in service_config.ini file. The verification dataset from Pubmed used in our experiments will be uploaded in the near future to be indexed in your own elasticsearch instances.
 
 .. code:: bash
 
