@@ -194,8 +194,41 @@ We run the SFT training, "max_steps" params has to be changed depending on the s
        --eval_steps=10 \
        --evaluation_strategy="steps"
 
+The merged model will be placed at insurance_m_5/sft/final_merged_checkpoint.
+
 **Direct Preference Optimization (DPO)**
 
+The "max_steps" param has to be adjusted according to the preference dataset size, for example if we have a size of 5195 examples, we divide by 64 (batch size) = 81,17, and multiply by 20 (we train for up to 20 epochs but apply early stopping) = ~1623. The "eval_steps" and "save_steps" have to be also changed according to the size, in this case we eval the trainig with the validation set every half epoch, so in our example we divide 81,17 by 2 = ~40
+
+.. code:: bash
+
+   accelerate launch dpo_llama2.py \
+      --train_data_path="../data/insurance/train_entities_preferences_clustering_Llama-2-7b-hf.jsonlines" \
+      --valid_data_path="../data/insurance/validation_entities_preferences_clustering_Llama-2-7b-hf.jsonlines" \
+      --model_name_or_path="insurance_m_5/sft/final_merged_checkpoint" \
+      --output_dir="insurance_m_5/factune_mc" \
+      --lr_scheduler_type="cosine" \
+      --warmup_steps=150 \
+      --gradient_accumulation_steps=16 \
+      --max_steps=1623 \
+      --lora_r=8 \
+      --lora_alpha=16 \
+      --learning_rate=0.00001 \
+      --report_to="tensorboard" \
+      --model_dtype="bfloat16" \
+      --per_device_eval_batch_size=32 \
+      --eval_steps=40 \
+      --save_steps=40 \
+      --early_stopping=True \
+      --early_stopping_patience=4
+
+The LoRA weights will be found in our case at "insurance_m_5/factune_mc/". We can merge the weights to the SFT model with:
+
+.. code:: bash
+
+   cp insurance_m_5/sft/*token* insurance_m_5/sft/final_merged_checkpoint/
+   python merge_peft_adapter.py --adapter_model_name insurance_m_5/factune_mc/ --base_model_name insurance_m_5/sft/final_merged_checkpoint/ --output_name insurance_m_5/factune_mc_merged
+   
 
 Evaluation
 ~~~~~~~~~~~~~~~~~~~~~
