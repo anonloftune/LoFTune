@@ -250,6 +250,35 @@ Evaluation
 ~~~~~~~~~~~~~~~~~~~~~
 **Factscore (Insurance)**
 
+From the "estimators" folder:
+
+.. code:: bash
+
+   conda activate vllm
+   python -m common.sample_model_vllm --question_dataset_path ../data/insurance/test_entities_questions_dataset.json \
+   --model_name_or_path ../training/insurance_m_5/factune_mc_merged \
+   --output_path ../data/insurance/test_entities_questions_answers_insurance-m-5-factune-mc.json \
+   --temperature 0.6 \
+   --samples_per_prompt 6 \
+   --prompt_path common/prompts/sample_model_zero-shot_prompt.txt # Here we use the zero-shot prompt
+   conda activate loftune
+   python -m common.extract_claims --paragraphs_path ../data/insurance/test_entities_questions_answers_insurance-m-5-factune-mc.json \
+   --dataset_output_path ../data/insurance/test_entities_questions_answers_claims_insurance-m-5-factune-mc.json \
+   --prompt_path common/prompts/extract_claims_prompt.txt \
+   --openai_key api.key
+   cd factscore
+   conda activate factscore
+   python factscorer.py \
+   --claims_path ../../data/insurance/test_entities_questions_answers_claims_insurance-m-5-factune-mc.json \
+   --model_name retrieval+ChatGPT \
+   --cache_dir .cache/factscore \
+   --gamma 0 \
+   --openai_key ../api.key \
+   --use_atomic_facts  \
+   --dataset_output_path  ../../data/insurance/test_entities_questions_answers_claims_factscore_insurance-m-5-factune-mc.json
+
+If we open the "test_entities_questions_answers_claims_factscore_insurance-m-5-factune-mc.json" file, we can see the obtained factscore, and the average supported, refute, and not enough information per response.
+
 **Factscore (Biomedicine)**
 
 **Downstream tasks: InsuranceQA and CovidQA**
