@@ -112,6 +112,22 @@ To get the factscore without the term expansion, we set to "insurance-en-new_dis
    --entity_articles_mapping insurance-en-new_distribution_train_dev-entities-no-expansion.yml \
    --dataset_output_path  ../../data/insurance/train_entities_questions_answers_claims_factscore-no-expansion_Llama-2-7b-hf.json
 
+For the health domain you must use the factscorer_es_dpo.py script. Before run it, don't forget to fill the fields in service_config.ini file.
+
+.. code:: bash
+
+   python factscorer_es_dpo.py \
+   --claims_path ../../data/biomedicine/train_entities_questions_answers_claims_Llama-2-7b-hf.json \
+   --model_name retrieval+ChatGPT \
+   --knowledge_source elastic \
+   --cache_dir .cache/factscore \
+   --gamma 0 \
+   --openai_key ../api.key \
+   --use_atomic_facts  \
+   --es_config service_config.ini
+   --dataset_output_path  ../../data/biomedicine/train_entities_questions_answers_claims_factscore_Llama-2-7b-hf.json
+
+
 **Judge-based**
 
 From the "estimators" folder, we run:
