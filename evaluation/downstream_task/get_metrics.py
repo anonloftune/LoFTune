@@ -1,4 +1,4 @@
-import evaluate
+# import evaluate
 import argparse
 from datasets import load_from_disk, load_dataset
 from factory import EvalMetricsFactory
@@ -49,7 +49,7 @@ if __name__ == "__main__":
     logger.info("=================== InsuranceQA EVALUATION ===================")
     tqdm.pandas()
     
-    rouge = evaluate.load('rouge')
+    # rouge = evaluate.load('rouge')
     metrics_factory = EvalMetricsFactory()
     # metric = metrics_factory.load("MistralEval", api_url="https://elmilab.expertcustomers.ai/elmi/generate", cache_dir=".cache/", device="cpu")
     metric = metrics_factory.load("GPTEval", api_url="https://api.openai.com/v1/chat/completions", cache_dir=".cache_GPT4omini/", api_key=api_key)
@@ -81,9 +81,9 @@ if __name__ == "__main__":
     _, pred_dataset_name = os.path.split(args.predictions_path)
     pred_dataset_name_output =  "eval_results_gpt4o_mini/" + pred_dataset_name.replace(".jsonl", ".csv")
     prediction_ds.to_csv(pred_dataset_name_output, index=False)  
-    results = rouge.compute(predictions=predictions, references=references, use_stemmer=True)
+    # results = rouge.compute(predictions=predictions, references=references, use_stemmer=True)
     results = {
-        **results,
+        # **results,
         "gpt-check-long":np.nanmean(prediction_ds["gpt-check-long"])
     }
     logger.info(results)

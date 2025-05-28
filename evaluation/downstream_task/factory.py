@@ -1,6 +1,6 @@
 import inspect
 
-import evaluate
+# import evaluate
 
 from llms import LongMistralEval, LongGPTEval
 
@@ -29,8 +29,8 @@ class EvalMetricsFactory:
             return cls._load(JsonExtractionEvaluator, kwargs)
         elif name_or_path == "GPTEval":
             return cls._load(LongGPTEval, kwargs)
-        else:
-            try:
-                return evaluate.load(name_or_path, **kwargs)
-            except Exception as e:
-                raise ValueError(f"Failed to load {name_or_path}, metric not found. Got exception {e}")
+        # else:
+            # try:
+            #     return evaluate.load(name_or_path, **kwargs)
+            # except Exception as e:
+            #     raise ValueError(f"Failed to load {name_or_path}, metric not found. Got exception {e}")
