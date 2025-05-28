@@ -89,6 +89,7 @@ The expansion of terms is done with the "wikipedia_search.py" script, we can run
 .. code:: bash
 
    conda activate loftune
+   mkdir .cache_GPT4o-mini-search
    python -m factscore.wikipedia_search --openai_key api.key \
    --prompt_path factscore/prompts/wikipedia_search-multiple-articles_prompt.txt \
    --entity_definitions factscore/insurance-en-entities-definitions.yml \
@@ -328,6 +329,24 @@ From the "estimators" folder:
 If we open the "covid_entities_subset_test_questions_answers_claims_factscore_insurance-m-5-factune-mc.json" file, we can see the obtained factscore in the biomedicine domain, and the average supported, refute, and not enough information per response.
 
 **Downstream tasks: InsuranceQA and CovidQA**
+
+From the folder "evaluation/downstream_task", we run:
+
+.. code :: bash
+
+   conda activate vllm
+   python sample_model_vllm.py --question_dataset_path ./insuranceQA/ \
+   --model_name_or_path ../../training/insurance_m_5/factune_mc_merged/ \
+   --output_path insuranceQA_insurance-m-5-factune-mc.jsonl \
+   --temperature 0.6  \
+   --prompt_path ../../estimators/common/prompts/sample_model_zero-shot_prompt.txt
+   conda activate loftune
+   mkdir eval_results_gpt4o_mini
+   python get_metrics.py --question_dataset_path ./insuranceQA \
+   --predictions_path insuranceQA_insurance-m-5-factune-mc.jsonlines \
+   --openai_key ../../estimators/api.key
+
+If we open the most recent "logs_*.txt" file, at the end of the file, we will see the "gpt-check-long" metric, which corresponds to the similaity score according to GPT 4o-mini.
 
 **SelfAware**
 
