@@ -1,0 +1,17 @@
+Given an input term and its definition in a specific domain, give me the link to its corresponding Wikipedia article. If the input term is not covered in Wikipedia, give me the link to the Wikipedia article of the entity that is semantically closest to it. Otherwise, return the closest hypernym entity in the domain. Just give me the json output as in the following example:
+
+input term: Special Endorsement
+definition: Special Endorsement - Written language appended to an insurance policy that changes the coverage in regards to special circumstances.
+domain: Insurance
+[
+{
+"input term" : "Special Endorsement"
+"definition" : "Special Endorsement - Written language appended to an insurance policy that changes the coverage in regards to special circumstances."
+"retrieved term" : "Endorsement (insurance)"
+"link" : "https://en.wikipedia.org/wiki/Endorsement"
+}
+]
+
+input term: {term}
+definition: {definition}
+domain: Insurance

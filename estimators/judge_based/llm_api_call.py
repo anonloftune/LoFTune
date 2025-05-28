@@ -14,10 +14,11 @@ def calculate_md5(input_string):
 
 
 class GPTCaller:
-    def __init__(self, api_url, cache_dir, api_key):
+    def __init__(self, api_url, cache_dir, api_key, model_name="gpt-4o-2024-08-06"):
         self.api_url = api_url
         self.cache_dir = cache_dir
         self.api_key = api_key
+        self.model_name = model_name
         os.makedirs(self.cache_dir, exist_ok=True)
 
         self.llm_calls_count = 0
@@ -28,7 +29,7 @@ class GPTCaller:
         hed = {"Authorization": f"Bearer {self.api_key}"}
     
         data = {
-            "model": "gpt-4o-2024-08-06",
+            "model": self.model_name,
         }
     
         prompt_messages = []
@@ -45,6 +46,7 @@ class GPTCaller:
             to_be_cached = False
             if os.path.exists(cache_file):
                 self.cache_count += 1
+                logger.info(f"cache_name: {cache_name}")
                 logger.info(f"Using cache for {prompt}. Cache count: [{self.cache_count}]")
                 with open(cache_file, "r", encoding="UTF8") as cacheFile:
                     resp_content = cacheFile.read()
@@ -57,10 +59,10 @@ class GPTCaller:
                     resp_content = json_resp["choices"][0]["message"]["content"].strip()
 
                     to_be_cached = True
-                    logger.info(f"[ALERT] another GPT 4o invocation was made! LLM count: [{self.llm_calls_count}]")
+                    logger.info(f"[ALERT] another GPT 4o / GPT 4o-mini invocation was made! LLM count: [{self.llm_calls_count}]")
                 else:
                     self.error_count += 1
-                    logger.info(f"[ERROR] GPT 4o invocation failed with status {response.status_code}; reason {response.reason}. Error count: [{self.error_count}]")
+                    logger.info(f"[ERROR] GPT 4o / GPT 4o-mini invocation failed with status {response.status_code}; reason {response.reason}. Error count: [{self.error_count}]")
                     resp_content = ''
 
             if to_be_cached and not os.path.exists(cache_file):
