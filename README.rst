@@ -84,10 +84,23 @@ Now we activate back the loftune conda environment to extract the claims from th
    gdown https://drive.google.com/uc?id=1Qu4JHWjpUKhGPaAW5UHhS5RJ545CVy4I
    mv enwiki-20230401.db .cache/factscore/
 
-If we want to get the Expanded Factscore, we have to set to "insurance-en-new_distribution_train_dev-entities-synonyms-hypernyms.yml" the entity_articles_mapping param.
+The expansion of terms is done with the "wikipedia_search.py" script, we can run it with the following commands, from the "estimators" folder:
 
 .. code:: bash
 
+   conda activate loftune
+   python -m factscore.wikipedia_search --openai_key api.key \
+   --prompt_path factscore/prompts/wikipedia_search-multiple-articles_prompt.txt \
+   --entity_definitions factscore/insurance-en-entities-definitions.yml \
+   --output_path factscore/insurance-en-entities-mapping.yml
+
+This will create the file "insurance-en-entities-mapping.yml", where for each entity, there will be an wikipedia article used for factuality evaluation.
+
+If we want to get the Expanded Factscore, we have to run the following from the "estimators/factscore" folder, and set to "insurance-en-new_distribution_train_dev-entities-synonyms-hypernyms.yml" the entity_articles_mapping param:
+
+.. code:: bash
+
+   conda activate factscore
    python factscorer_dpo.py \
    --claims_path ../../data/insurance/train_entities_questions_answers_claims_Llama-2-7b-hf.json \
    --model_name retrieval+ChatGPT \
@@ -110,7 +123,9 @@ To get the factscore without the term expansion, we set to "insurance-en-new_dis
    --openai_key ../api.key \
    --use_atomic_facts  \
    --entity_articles_mapping insurance-en-new_distribution_train_dev-entities-no-expansion.yml \
-   --dataset_output_path  ../../data/insurance/train_entities_questions_answers_claims_factscore-no-expansion_Llama-2-7b-hf.json
+   --dataset_output_path  ../../data/insurance/train_entities_questions_answers_claims_factscore-no-expansion_Llama-2-7b-hf.json   
+
+
 
 For the health domain you must use the factscorer_es_dpo.py script. Before run it, don't forget to fill the fields in service_config.ini file. The verification dataset from Pubmed used in our experiments will be uploaded in the near future to be indexed in your own elasticsearch instances.
 
