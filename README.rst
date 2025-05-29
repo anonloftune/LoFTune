@@ -366,6 +366,18 @@ To evaluate on the CovidQA dataset, we run:
 
 **SelfAware**
 
+From the "evaluation/selfAware/code" folder:
+
+.. code :: bash
+
+   conda create -n selfaware python=3.8
+   conda activate selfaware
+   pip install -r requirements.txt
+   python run_model.py --input-form Direct --model-name insurance-m-5-factune-mc --temperature 0.7
+   python eval_model.py --filename insurance-m-5-factune-mc/Direct_insurance-m-5-factune-mc_T_0.7.jsonl --threshold 0.75 --model princeton-nlp/sup-simcse-roberta-large
+
+If you want to evaluate a new model, you have to modify the "run_model.py" script, first by adding a model name to the variable "choices" (line 46), adding the model name to "llama_list" (line 141), and adding a new entry to "model_dict" (line 142) where the key is the model name, and the value is the path to the model.
+
 **FreshQA**
 
 **FacTool-QA**
