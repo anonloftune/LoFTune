@@ -380,6 +380,17 @@ If you want to evaluate a new model, you have to modify the "run_model.py" scrip
 
 **FreshQA**
 
+.. code :: bash
+
+   conda activate vllm
+   python sample_model_vllm.py --question_dataset_path data/FreshQA_v03172025\ -\ freshqa.csv \
+   --model_name_or_path ../../training/insurance_m_5/factune_mc_merged/ \
+   --output_path FreshQA_v03172025_insurance-m-5-factune-mc.csv \
+   --temperature 0.6 \
+   --prompt_path ../../estimators/common/prompts/sample_model_zero-shot_prompt.txt
+
+Next steps are in the `FreshLLMs Github repository <https://github.com/freshllms/freshqa?tab=readme-ov-file#automatic-evaluation>`_, we used the "Relaxed" evaluation mode and "gpt-4o-mini-2024-07-18" as model_name in the "fresheval_relaxed.ipynb" notebook.
+
 **FacTool-QA**
 
 **FactScore-Bio**
