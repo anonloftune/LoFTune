@@ -330,6 +330,7 @@ If we open the "covid_entities_subset_test_questions_answers_claims_factscore_in
 
 **Downstream tasks: InsuranceQA and CovidQA**
 
+
 From the folder "evaluation/downstream_task", we run:
 
 .. code :: bash
@@ -347,6 +348,21 @@ From the folder "evaluation/downstream_task", we run:
    --openai_key ../../estimators/api.key
 
 If we open the most recent "logs_*.txt" file, at the end of the file, we will see the "gpt-check-long" metric, which corresponds to the similaity score according to GPT 4o-mini.
+
+To evaluate on the CovidQA dataset, we run:
+
+.. code :: bash
+
+   conda activate vllm
+   python sample_model_vllm.py --question_dataset_path covidqa_bio/ \
+   --model_name_or_path ../../training/insurance_m_5/factune_mc_merged/ \
+   --output_path covidqa-bio_insurance-m-5-factune-mc.jsonl \
+   --temperature 0.6 \
+   --prompt_path ../../estimators/common/prompts/sample_model_zero-shot_prompt.txt
+   conda activate loftune
+   python get_metrics.py --question_dataset_path ./covidqa_bio/ \
+   --predictions_path covidqa-bio_insurance-m-5-factune-mc.jsonl \
+   --openai_key ../../estimators/api.key
 
 **SelfAware**
 
