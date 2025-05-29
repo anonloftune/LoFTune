@@ -393,6 +393,8 @@ Next steps are in the `FreshLLMs Github repository <https://github.com/freshllms
 
 **FacTool-QA**
 
+From the "evaluation/factool" folder, we run:
+
 .. code :: bash
 
    conda activate vllm
@@ -410,9 +412,31 @@ Next steps are in the `FreshLLMs Github repository <https://github.com/freshllms
    export SCRAPER_API_KEY= # Here you need to put your Scraper API Key, although it is not used
    python get_metrics.py --predictions_path knowledge-qa_insurance-m-5-factune-mc.jsonl
    
-
 **FactScore-Bio**
 
+From the "evaluation/factscore_bio" folder, we run:
+
+.. code:: bash
+
+   conda activate vllm
+   python sample_model_vllm.py --entities_dataset_path data/unlabeled/prompt_entities.txt \
+   --model_name_or_path ../../training/insurance_m_5/factune_mc_merged/ \
+   --output_path data/unlabeled/insurance-m-5-factune-mc.jsonl \
+   --temperature 0.6 \
+   --prompt_path ../../estimators/common/prompts/sample_model_zero-shot_prompt.txt
+   conda create -n factscore_bio python=3.10
+   conda activate factscore_bio
+   pip install .
+   mkdir -p .cache/factscore
+   cd .cache/factscore/
+   ln -s ../../../../estimators/factscore/.cache/factscore/enwiki-20230401.db
+   cd -
+   python -m spacy download en_core_web_sm
+   python -m factscore.download_data
+   python -m factscore.factscorer --input_path data/unlabeled/insurance-m-5-factune-mc.jsonl \
+   --model_name retrieval+ChatGPT \
+   --openai_key ../../estimators/api.key
+   
 
 .. |PyPI pyversions| image:: https://badgen.net/pypi/python/black
    :target: https://www.python.org/
