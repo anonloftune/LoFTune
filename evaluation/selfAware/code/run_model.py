@@ -64,14 +64,7 @@ parser.add_argument(
         "alpaca-13b",
         "vicuna-7b",
         "vicuna-13b",
-        "llama-2-7b-insurance-sft-40",
-        "llama-2-7b-insurance-dpo-fs-40",
-        "llama-2-7b-insurance-sft-10",
-        "llama-2-7b-insurance-dpo-lg-10",
-        "llama-2-7b-covid-sft",
-        "llama-2-7b-covid-dpo-fs",
-        "llama-2-7b-covid-dpo-lg",
-        "llama-2-7b-covid-dpo-gg"
+        "insurance-m-5-factune-mc"
     ],
     help="Model for testing",
 )
@@ -145,8 +138,8 @@ if __name__ == "__main__":
 
     GPT_list = ["ada", "babbage", "curie", "davinci", "text-ada-001", "text-babbage-001", "text-curie-001", "text-davinci-001", "text-davinci-002", "text-davinci-003"]
     ChatGPT_list = ["gpt-3.5-turbo-0301", "gpt-4-0314"]
-    llama_list = ["llama-7b", "llama-13b", "llama-30b", "llama-65b", "alpaca-7b", "alpaca-13b", "vicuna-7b", "vicuna-13b", "llama-2-7b-insurance-sft-40", "llama-2-7b-insurance-dpo-fs-40", "llama-2-7b-insurance-sft-10", "llama-2-7b-insurance-dpo-lg-10", "llama-2-7b-covid-sft", "llama-2-7b-covid-dpo-fs", "llama-2-7b-covid-dpo-lg", "llama-2-7b-covid-dpo-gg"]
-    model_dict = {"llama-7b": "decapoda-research/llama-7b-hf", "llama-13b": "decapoda-research/llama-13b-hf", "llama-30b": "decapoda-research/llama-30b-hf", "llama-65b": "decapoda-research/llama-65b-hf", "alpaca-7b": "chavinlo/alpaca-native", "alpaca-13b": "chavinlo/alpaca-13b", "vicuna-7b": "eachadea/vicuna-7b-1.1", "vicuna-13b": "eachadea/vicuna-13b-1.1", "llama-2-7b-insurance-sft-40":"/home/jovyan/cberrio/inesdata-knowledge-injection/new_data_distribution/40_samples_per_prompt/sft/final_merged_checkpoint/", "llama-2-7b-insurance-dpo-fs-40":"/home/jovyan/cberrio/inesdata-knowledge-injection/new_data_distribution/40_samples_per_prompt_factscore-trivalued-gpt4o-mini/insurance_en-dpo_new_data_distribution_extended4_preferences-chosen-threshold-0.5_factscore-trivalued-gpt4o-mini-nei-unfiltered_rank8_alpha16_batchsize64_lr1e-5_cosine_20epochs_early-stopping-4-patience/", "llama-2-7b-insurance-sft-10": "/home/jovyan/cberrio/inesdata-knowledge-injection/new_data_distribution/sft/final_merged_checkpoint/", "llama-2-7b-insurance-dpo-lg-10": "/home/jovyan/cberrio/inesdata-knowledge-injection/new_data_distribution/10_samples_per_prompt_llm_confidence/insurance_en-dpo_llm_confidence_new_data_distribution_preferences-chosen-threshold-0.5_rank8_alpha16_batchsize64_lr1e-5_cosine_20epochs_early-stopping-4-patience_cpkt555/","llama-2-7b-covid-sft":"/home/jovyan/cberrio/inesdata-knowledge-injection/health_data/covid_sft", "llama-2-7b-covid-dpo-fs": "/home/jovyan/cberrio/inesdata-knowledge-injection/health_data/covid_dpo_fs_new_merged", "llama-2-7b-covid-dpo-lg": "/home/jovyan/cberrio/inesdata-knowledge-injection/health_data/covid_dpo_llg_merged", "llama-2-7b-covid-dpo-gg":"/home/jovyan/cberrio/inesdata-knowledge-injection/health_data/covid_dpo_gg_merged"}
+    llama_list = ["llama-7b", "llama-13b", "llama-30b", "llama-65b", "alpaca-7b", "alpaca-13b", "vicuna-7b", "vicuna-13b", "insurance-m-5-factune-mc"]
+    model_dict = {"llama-7b": "decapoda-research/llama-7b-hf", "llama-13b": "decapoda-research/llama-13b-hf", "llama-30b": "decapoda-research/llama-30b-hf", "llama-65b": "decapoda-research/llama-65b-hf", "alpaca-7b": "chavinlo/alpaca-native", "alpaca-13b": "chavinlo/alpaca-13b", "vicuna-7b": "eachadea/vicuna-7b-1.1", "vicuna-13b": "eachadea/vicuna-13b-1.1", "insurance-m-5-factune-mc":"../../../training/insurance_m_5/factune_mc_merged"}
     if model_name in llama_list:
         model = AutoModelForCausalLM.from_pretrained(model_dict[model_name]).half().cuda()
         tokenizer = AutoTokenizer.from_pretrained(model_dict[model_name])
