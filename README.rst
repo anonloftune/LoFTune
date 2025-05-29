@@ -393,6 +393,24 @@ Next steps are in the `FreshLLMs Github repository <https://github.com/freshllms
 
 **FacTool-QA**
 
+.. code :: bash
+
+   conda activate vllm
+   python sample_model_vllm.py --question_dataset_path data/knowledge_qa/knowledge_qa.jsonl \
+   --model_name_or_path ../../training/insurance_m_5/factune_mc_merged/ \
+   --output_path knowledge-qa_insurance-m-5-factune-mc.jsonl \
+   --temperature 0.6 \
+   --prompt_path ../../estimators/common/prompts/sample_model_zero-shot_prompt.txt
+   mkdir eval_results_gpt4o_mini
+   conda create -n factool python=3.9
+   conda activate factool
+   pip install factool datasets httpx==0.27.2
+   export OPENAI_API_KEY= # Here you need to put your OpenAI API Key
+   export SERPER_API_KEY= # Here you need to put your Serper API Key
+   export SCRAPER_API_KEY= # Here you need to put your Scraper API Key, although it is not used
+   python get_metrics.py --predictions_path knowledge-qa_insurance-m-5-factune-mc.jsonl
+   
+
 **FactScore-Bio**
 
 
