@@ -436,7 +436,13 @@ From the "evaluation/factscore_bio" folder, we run:
    python -m factscore.factscorer --input_path data/unlabeled/insurance-m-5-factune-mc.jsonl \
    --model_name retrieval+ChatGPT \
    --openai_key ../../estimators/api.key
-   
+
+
+Datasets and Models
+---------------
+
+All the datasets and models used in this research are available in our `Huggingface profile <https://huggingface.co/anonloftune>`_.
+
 
 .. |PyPI pyversions| image:: https://badgen.net/pypi/python/black
    :target: https://www.python.org/
