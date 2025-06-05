@@ -4,7 +4,15 @@ Towards Factual Large Language Models in Low-Resource Domains
 
 |PyPI pyversions|
 
-Source code and datasets for the paper Towards Factual Large Language Models in Low-Resource Domains
+Content
+---------------
+This repository contains **code** and **datasets** for the paper titled *Towards Factual Large Language Models in Low-Resource Domains*. It is organized as follows:
+
+- `data <data>`_: Contains the train/validation/test entity splits for the insurance and health domain, and the test questions.
+- `estimators <estimators>`_: Contains the code for running the different factuality estimators: model confidence, (expanded) FactScore, and the judge-based estimator.
+- `evaluation <evaluation>`_: Code and data for running the different evaluations: downstream tasks (InsuranceQA and CovidQA), and the general domain evaluation: SelfAware, FreshQA, Factool-QA, and FactScore biographies.
+- `training <training>`_: Scripts to run the traininig of the Supervised Fine-Tuning (SFT) and the Direct Preference Optimization (DPO) models  for both the Llama and Pythia models.
+
 
 Reproducibility
 ---------------
