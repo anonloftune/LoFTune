@@ -10,7 +10,7 @@ This repository contains **code** and **datasets** for the paper titled *Towards
 
 - `data <data>`_: Contains the train/validation/test entity splits for the insurance and health domain, and the test questions.
 - `estimators <estimators>`_: Contains the code for running the different factuality estimators: model confidence, (expanded) FactScore, and the judge-based estimator.
-- `evaluation <evaluation>`_: Code and data for running the different evaluations: downstream tasks (InsuranceQA and CovidQA), and the general domain evaluation: SelfAware, FreshQA, Factool-QA, and FactScore biographies.
+- `evaluation <evaluation>`_: Code and data for running the different evaluations: FactScore on insurance and health domain, downstream tasks (InsuranceQA and CovidQA), and the general domain evaluation: SelfAware, FreshQA, Factool-QA, and FactScore biographies.
 - `training <training>`_: Scripts to run the traininig of the Supervised Fine-Tuning (SFT) and the Direct Preference Optimization (DPO) models  for both the Llama and Pythia models.
 
 
@@ -19,6 +19,12 @@ Reproducibility
 
 Factuality estimators
 ~~~~~~~~~~~~~~~~~~~~~
+
+In this section, we explain how to generate a dataset of question-answer pairs along with their factuality scores. The scores can be computed using one of three estimators: model confidence, (expanded) FactScore, or a judge-based estimator.
+Some steps are common across all estimators, such as question generation and question sampling. Additionally, both the model confidence and FactScore methods share the claim extraction step.
+The examples provided use 5 samples per prompt. To create, for example, a dataset with 10 samples per prompt from the 5 samples per prompt version, you can generate another set of 5 samples and merge it with the existing dataset.
+
+First we create a conda environment with the required libraries, next we can generate the questions from the entities.
 
 .. code:: bash
 
@@ -63,6 +69,8 @@ Now we activate back the loftune conda environment to extract the claims from th
 
 **Model confidence**
 
+For the model confidence estimator, we take the extracted claims, generate questions from them, sample the model 20 times, cluster the answers, and we use the size of the largest cluster to estimate the model's confidence.
+ 
 .. code:: bash
 
    python -m model_confidence.claims_to_questions --claims_path ../data/insurance/train_entities_questions_answers_claims_Llama-2-7b-hf.json \
@@ -80,6 +88,8 @@ Now we activate back the loftune conda environment to extract the claims from th
    
 
 **FactScore/Expanded FactScore**
+
+For the factscore we will create another conda environment, install the requirements, and download the reference dataset.
 
 .. code:: bash
 
@@ -167,6 +177,8 @@ From the "estimators" folder, we run:
 SFT and preference dataset generation
 ~~~~~~~~~~~~~~~~~~~~~
 
+The SFT and DPO datasets can be generated with the following commands:
+
 .. code:: bash
 
    python -m common.prepare_sft_data --dataset_input_path ../data/insurance/train_entities_questions_answers_claims_questions_answers_clustering_scores_Llama-2-7b-hf.json \
@@ -178,7 +190,8 @@ SFT and preference dataset generation
 
 Training
 ~~~~~~~~~~~~~~~~~~~~~
-**Supervised Fine-Tuning (SFT)**
+
+For the training of SFT and DPO models, we used accelerate, we show our configuration file as reference:
 
 .. code:: bash
 
@@ -205,6 +218,8 @@ The default_config.yaml file in ~/.cache/huggingface/defaul_config.yaml
    tpu_use_cluster: false
    tpu_use_sudo: false
    use_cpu: false
+
+**Supervised Fine-Tuning (SFT)**
 
 We run the SFT training, "max_steps" params has to be changed depending on the size of the SFT dataset, if size is for example 2730 examples, we divide 2730 by 8 (batch size) = 341,25 steps/epoch, and as an heuristic we train for 1.3 epochs so 341,25*1,3 = ~443:
 
@@ -272,6 +287,9 @@ The LoRA weights will be found in our case at "insurance_m_5/factune_mc/". We ca
 
 Evaluation
 ~~~~~~~~~~~~~~~~~~~~~
+
+In this section we show how to evaluate the LLMs on diferent tasks: FactScore in insurance and health domain, downstream tasks and in general domain.
+
 **Factscore (Insurance)**
 
 From the "estimators" folder:
@@ -401,6 +419,8 @@ Next steps are in the `FreshLLMs Github repository <https://github.com/freshllms
 
 **FacTool-QA**
 
+For this evaluation, appart from the OpenAI API token, we need a Sperper API token. You can generate one with 2,500 free queries.
+
 From the "evaluation/factool" folder, we run:
 
 .. code :: bash
@@ -449,7 +469,7 @@ From the "evaluation/factscore_bio" folder, we run:
 Datasets and Models
 ---------------
 
-All the datasets and models used in this research are available in our `Huggingface profile <https://huggingface.co/anonloftune>`_.
+All the training datasets and models used in this research are available in our `Huggingface profile <https://huggingface.co/anonloftune>`_. Insurance models are provided as PEFT models. We recommend merging the LoRA weights into the corresponding base model before performing any evaluation.
 
 
 .. |PyPI pyversions| image:: https://badgen.net/pypi/python/black
